@@ -1,5 +1,8 @@
 name: 'versioner-action'
 description: 'Git Tag versioning with semantic version calculation'
+branding:
+  icon: 'activity'
+  color: 'gray-dark'
 
 outputs:
   version:
