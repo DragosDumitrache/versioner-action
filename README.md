@@ -19,8 +19,7 @@ A GitHub Action that calculates semantic versions from git tags and branches usi
   "default_branch": "main",
   "major": "1",
   "minor": "0",
-  "tag_prefix": "v",
-  "include_v_prefix": true
+  "tag_prefix": "v"
 }
 ```
 
@@ -55,7 +54,6 @@ jobs:
 | Output | Description | Example |
 |--------|-------------|---------|
 | `version` | Full calculated version | `v1.2.3` or `v1.2.3-dev.feature.abc123` |
-| `clean-version` | Version without v prefix | `1.2.3` |
 | `is-prerelease` | Whether this is a pre-release | `true`/`false` |
 
 ## Configuration
@@ -68,7 +66,6 @@ All configuration is done via `version.json` in your repository root:
 | `major` | Minimum major version | `"1"` |
 | `minor` | Minimum minor version | `"2"` |
 | `tag_prefix` | Prefix for git tags | `"v"` or `""` |
-| `include_v_prefix` | Include v in output version | `true` or `false` |
 
 ## Examples
 

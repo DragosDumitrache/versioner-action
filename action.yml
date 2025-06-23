@@ -8,9 +8,6 @@ outputs:
   version:
     value: ${{ steps.semver.outputs.version }}
     description: 'The calculated semantic version'
-  clean-version:
-    value: ${{ steps.semver.outputs.clean-version }}
-    description: 'Version without v prefix'
   is-prerelease:
     value: ${{ steps.semver.outputs.is-prerelease }}
     description: 'Whether this is a pre-release version'
@@ -35,7 +32,7 @@ runs:
       uses: actions/checkout@v4
       with:
         repository: DragosDumitrache/versioner
-        ref: 3.0.0
+        ref: 3.1.0
         path: versioning-tools
 
     - name: Check git repository
@@ -69,10 +66,6 @@ runs:
         VERSION=$(${SCRIPT_PATH})
         echo "version=${VERSION}" >> $GITHUB_OUTPUT
         echo "Version is: ${VERSION}"
-        
-        # Clean version (remove v prefix if present)
-        CLEAN_VERSION="${VERSION#v}"
-        echo "clean-version=${CLEAN_VERSION}" >> $GITHUB_OUTPUT
         
         # Check if pre-release
         if [[ "$VERSION" =~ -dev\. ]]; then
